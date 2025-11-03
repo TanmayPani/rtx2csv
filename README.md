@@ -1,6 +1,6 @@
 # rtx2csv
 
-CLI tool written in python to convert `.rtx` files into `.csv` files 
+CLI tool written in python to convert `.rtx` files produced from Renishaw XL-80 dynamic captures into `.csv` files 
 
 # Usage
 
@@ -17,18 +17,18 @@ python rtx_to_csv.py test/*.rtx test/outputs
 ```
 
 
-Output should look like:
+Output on the terminal should look like:
 ```
 Converted 1 files in 0.8704216480255127 time!
 ```
+look in `test` folder for a folder with the same basename as the `.rtx` file containing `header.json` and `data.csv` files
 
-
-check all arguments:
+check all the arguments that can be set:
 ```
 python rtx_to_csv.py -h 
 ```
 
 (Optionally) set alias in `.bashrc`
 ```
-alias rtx2csv="python rtx_to_csv.py"
+alias rtx2csv="python /path/to/rtx2csv/rtx_to_csv.py"
 ```
