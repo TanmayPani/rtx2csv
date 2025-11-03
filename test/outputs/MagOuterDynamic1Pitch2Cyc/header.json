@@ -1,0 +1,25 @@
+{
+    "file_path": "test/outputs/MagOuterDynamic1Pitch2Cyc/data.csv",
+    "owner": "CARTO-Dynamic",
+    "version_number": "4.13.9237.28405",
+    "file_type": "csv",
+    "velocity": 0.0,
+    "sample_rate": 50000.0,
+    "sample_number": 1000001.0,
+    "trigger_point": 0.0,
+    "trigger_interval": 2e-05,
+    "actual_sample_rate": 50000.0,
+    "flags": [
+        0,
+        1,
+        2,
+        0,
+        2
+    ],
+    "machine": "",
+    "serial_number": "",
+    "date": "10/02/2025 12:58:22",
+    "by": "User",
+    "axis": "",
+    "location": ""
+}
