@@ -25,7 +25,22 @@ look in `test/outputs` folder for a folder with the same basename as the `.rtx` 
 
 check all the arguments that can be set:
 ```
-python rtx_to_csv.py -h 
+$ python rtx_to_csv.py -h
+usage: rtx_to_csv.py [-h] [--reduceby REDUCEBY] [--reduction {mean,drop}] [--chunk_size CHUNK_SIZE] input output_dir
+
+convert .rtx files into .csv files
+
+positional arguments:
+  input                 path to an .rtx file or a glob expression
+  output_dir            path to folder to store the output files in
+
+options:
+  -h, --help            show this help message and exit
+  --reduceby REDUCEBY   factor to reduce sampling rate by
+  --reduction {mean,drop}
+                        how to apply reduction to sampling rate
+  --chunk_size CHUNK_SIZE
+                        amount of data (in bytes) to read at once from a .rtx file
 ```
 
 (Optionally) set alias in `.bashrc`
