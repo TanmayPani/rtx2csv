@@ -21,7 +21,7 @@ Output on the terminal should look like:
 ```
 Converted 1 files in 0.8704216480255127 time!
 ```
-look in `test` folder for a folder with the same basename as the `.rtx` file containing `header.json` and `data.csv` files
+look in `test/outputs` folder for a folder with the same basename as the `.rtx` file containing `header.json` and `data.csv` files
 
 check all the arguments that can be set:
 ```
