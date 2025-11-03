@@ -1,6 +1,6 @@
 # rtx2csv
 
-CLI tool written in python to convert `.rtx` files produced from Renishaw XL-80 dynamic captures into `.csv` files 
+CLI tool written in pure python to convert `.rtx` files produced from Renishaw XL-80 dynamic captures into `.csv` files 
 
 # Usage
 
@@ -32,3 +32,5 @@ python rtx_to_csv.py -h
 ```
 alias rtx2csv="python /path/to/rtx2csv/rtx_to_csv.py"
 ```
+
+has been tested in `Python 3.13.9` on Fedora 42
