@@ -6,7 +6,6 @@ from itertools import zip_longest
 from statistics import mean
 from math import ceil
 
-from datetime import datetime
 from dataclasses import dataclass, field, asdict
 
 import json
@@ -48,7 +47,7 @@ class RTXData:
     flags : list[int] = field(default_factory = list, init=False)
     machine : str = ""
     serial_number : str = ""
-    date : datetime = field(default_factory = datetime.now, init=False)
+    date : str = ""
     by : str = ""
     axis : str = ""
     location : str = ""
@@ -72,13 +71,12 @@ class RTXData:
         self.by                = kv_map["By"                ]
         self.axis              = kv_map["Axis"              ]
         self.location          = kv_map["Location"          ]
-        self.date              = datetime.strptime(kv_map["Date"], "%d/%m/%Y %I:%M:%S")
-        self.flags             = [int(f) for f in kv_map["Flags"].split()]
+        self.date              = kv_map["Date"              ]
+        self.flags         = [int(f) for f in kv_map["Flags"].split()]
 
     def header_dict(self):
         return {
-            k : deepcopy(v) if not isinstance(v, datetime) else v.strftime("%d/%m/%Y %I:%M:%S")
-            for k, v in self.__dict__.items() if k != "data"
+            k : deepcopy(v) for k, v in self.__dict__.items() if k != "data"
         }
 
     def add(self, *args):
@@ -137,6 +135,7 @@ def read_rtx_file(file_path, chunk_size=8192, header_only=False):
     eof_stub = b"EOF::\r\n"
     eof_found = False
     rtx_data = RTXData(file_path)
+    #print("Reading from file", file_path)
     with open(file_path, "rb") as f:
         last_pos = f.tell()
         ichunk = 0
@@ -215,7 +214,7 @@ def rtx_to_csv(
     with open(header_file, "w") as hout:
         header = rtx_data.header_dict()
         header["file_type"] = "csv"
-        header["file_path"] = csv_file
+        header["data"] = csv_file
         
         json.dump(header, hout, indent=4)
 
